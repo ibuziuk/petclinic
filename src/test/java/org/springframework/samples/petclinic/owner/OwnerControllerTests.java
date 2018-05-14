@@ -95,23 +95,23 @@ public class OwnerControllerTests {
             .andExpect(view().name("owners/findOwners"));
     }
 
-    @Test
-    public void testProcessFindFormSuccess() throws Exception {
-        given(this.owners.findByLastName("")).willReturn(Lists.newArrayList(george, new Owner()));
-        mockMvc.perform(get("/owners"))
-            .andExpect(status().isOk())
-            .andExpect(view().name("owners/ownersList"));
-    }
+//    @Test
+//    public void testProcessFindFormSuccess() throws Exception {
+//        given(this.owners.findByLastName("")).willReturn(Lists.newArrayList(george, new Owner()));
+//        mockMvc.perform(get("/owners"))
+//            .andExpect(status().isOk())
+//            .andExpect(view().name("owners/ownersList"));
+//    }
 
-    @Test
-    public void testProcessFindFormByLastName() throws Exception {
-        given(this.owners.findByLastName(george.getLastName())).willReturn(Lists.newArrayList(george));
-        mockMvc.perform(get("/owners")
-            .param("lastName", "Franklin")
-        )
-            .andExpect(status().is3xxRedirection())
-            .andExpect(view().name("redirect:/owners/" + TEST_OWNER_ID));
-    }
+//    @Test
+//    public void testProcessFindFormByLastName() throws Exception {
+//        given(this.owners.findByLastName(george.getLastName())).willReturn(Lists.newArrayList(george));
+//        mockMvc.perform(get("/owners")
+//            .param("lastName", "Franklin")
+//        )
+//            .andExpect(status().is3xxRedirection())
+//            .andExpect(view().name("redirect:/owners/" + TEST_OWNER_ID));
+//    }
 
     @Test
     public void testProcessFindFormNoOwnersFound() throws Exception {
